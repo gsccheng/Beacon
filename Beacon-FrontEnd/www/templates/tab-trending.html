@@ -1,0 +1,13 @@
+<ion-view view-title="Trending">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-avatar" ng-repeat="event in events | orderBy:predicate:reverse" type="item-text-wrap" href="#tab/event-detail/{{event.id}}">
+        <h2>{{event.title}}</h2>
+        <p>{{event.description}}</p>
+        <p>Start Time: {{event.date_start | date:'medium'}}</p>
+        <p>End Time: {{event.date_end | date:'medium'}}</p>
+        <p>People Attending: {{event.people_count}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

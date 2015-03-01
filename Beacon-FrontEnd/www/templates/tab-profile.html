@@ -1,0 +1,32 @@
+<!-- This view is not connected to controller or tabs! -->
+
+<ion-view view-title="Profile">
+  <ion-content class="padding">
+
+    <div class='list'>
+      <a class='item item-thumbnail-left'>
+        <img  src="{{user.image}}">
+        <h2>{{user.name}}</h2>
+        <h2>{{user.location}}</h2>
+      </a>
+    </div>
+
+    <div>
+      <span class='input-label'>Host Rating Count: {{user.host_rating_count}}</span>
+      <progress class='host-rating' value='{{user.host_rating}}' max='100'></progress>
+      <span class='input-label'>Guest Rating Count: {{user.attendee_rating_count}}</span>
+      <progress class='guest-rating' value='{{user.attendee_rating}}' max='100'></progress>
+    </div>
+
+    <div class='upcoming' >
+      <h3>Upcoming Events</h3>
+      <ion-list ng-controller="EventsCtrl">
+        <ion-item class="item-avatar" ng-repeat="event in events" type="item-text-wrap" ui-sref="tab.event-detail">
+          <!-- <img ng-src="{{event.picture}}"> -->
+          <h2>{{event.title}}</h2>
+        </ion-item>
+      </ion-list>
+    </div>
+
+  </ion-content>
+</ion-view>
