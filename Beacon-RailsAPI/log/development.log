@@ -687,3 +687,71 @@ Started GET "/events" for ::1 at 2015-02-17 20:37:17 -0800
 Processing by EventsController#index as HTML
   [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events"
 Completed 200 OK in 16ms (Views: 12.4ms | ActiveRecord: 2.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (24.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (3.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'events'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (24.1ms)[0m  INSERT INTO "events" ("title", "description", "location", "date_start", "date_end", "people_count", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["title", "Aaron's birthday party"], ["description", "Aaron is turning 20. Bring your own apple juice."], ["location", "1272 El Camino Real, San Bruno"], ["date_start", "2015-02-14 20:00:00.000000"], ["date_end", "2015-02-15 01:00:00.000000"], ["people_count", 30], ["category", "Social"], ["created_at", "2015-03-01 07:53:41.901396"], ["updated_at", "2015-03-01 07:53:41.901396"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("title", "description", "location", "date_start", "date_end", "people_count", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Smash Bros tournament"], ["description", "The red controller wins every time."], ["location", "1080 Folsom St, San Francisco"], ["date_start", "2015-04-20 19:59:59.000000"], ["date_end", "2015-04-20 19:59:59.000000"], ["people_count", 20], ["category", "Video Games"], ["created_at", "2015-03-01 07:53:41.933639"], ["updated_at", "2015-03-01 07:53:41.933639"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("title", "description", "location", "date_start", "date_end", "people_count", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["title", "Burrito bet smackdown"], ["description", "Bet burritos on Trivia Crack matches, coin tosses, ping pong games, and Smash Bros. Burritos from El Farolito only. Limit $5 per repaid burrito. No guac allowed."], ["location", "2779 Mission St, San Francisco"], ["date_start", "2015-02-20 20:00:00.000000"], ["date_end", "2015-02-20 20:00:00.000000"], ["people_count", 15], ["category", "Food"], ["created_at", "2015-03-01 07:53:41.936920"], ["updated_at", "2015-03-01 07:53:41.936920"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("title", "description", "location", "date_start", "date_end", "people_count", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Desert Rabbits demos"], ["description", "We made amazing apps. Hire us!"], ["location", "633 Folsom St, San Francisco"], ["date_start", "2015-02-20 19:00:00.000000"], ["date_end", "2015-02-21 04:00:00.000000"], ["people_count", 100], ["category", "Misc"], ["created_at", "2015-03-01 07:53:41.940288"], ["updated_at", "2015-03-01 07:53:41.940288"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "events" ("title", "description", "location", "date_start", "date_end", "people_count", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["title", "Bad joke competition"], ["description", "Bring your best Reddit jokes. Worst joke wins a burrito!"], ["location", "874 Fell St, San Francisco"], ["date_start", "2015-04-20 19:59:59.000000"], ["date_end", "2015-04-20 19:59:59.000000"], ["people_count", 10], ["category", "Entertainment"], ["created_at", "2015-03-01 07:53:41.943139"], ["updated_at", "2015-03-01 07:53:41.943139"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("title", "description", "location", "date_start", "date_end", "people_count", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Join the Chipotle gang for lunch!"], ["description", "Everyone follow Victoria to Chipotle. The one at the Metreon gives you more meat."], ["location", "525 Market St, San Francisco"], ["date_start", "2015-02-21 04:00:00.000000"], ["date_end", "2015-02-21 04:00:00.000000"], ["people_count", 10], ["category", "Food"], ["created_at", "2015-03-01 07:53:41.945877"], ["updated_at", "2015-03-01 07:53:41.945877"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "events" ("title", "description", "location", "date_start", "date_end", "people_count", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["title", "Morning coffee run"], ["description", "Victoria will get Philz for all team leads! Text her before 8:15 or you will default to a large Tesora medium medium."], ["location", "201 Berry St, San Francisco"], ["date_start", "2015-02-21 04:00:00.000000"], ["date_end", "2015-02-21 04:00:00.000000"], ["people_count", 8], ["category", "Food"], ["created_at", "2015-03-01 07:53:41.948583"], ["updated_at", "2015-03-01 07:53:41.948583"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "events" ("title", "description", "location", "date_start", "date_end", "people_count", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "The holiest of all holidays"], ["description", "Don't worry about a thing, cause every little thing's gonna be alright."], ["location", "56 Hope Road Kingston 6 Hope Rd, Kingston, Jamaica"], ["date_start", "2015-04-20 08:00:00.000000"], ["date_end", "2015-04-20 19:59:59.000000"], ["people_count", 200], ["category", "Social"], ["created_at", "2015-03-01 07:53:41.951270"], ["updated_at", "2015-03-01 07:53:41.951270"]]
+  [1m[35m (0.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "events" ("title", "description", "location", "date_start", "date_end", "people_count", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"  [["title", "Coachella"], ["description", "W00 music and hipster bands."], ["location", "81-800 Avenue 51, Indio, CA"], ["date_start", "2015-04-10 19:59:59.000000"], ["date_end", "2015-04-17 19:59:59.000000"], ["people_count", 500], ["category", "Social"], ["created_at", "2015-03-01 07:53:41.953968"], ["updated_at", "2015-03-01 07:53:41.953968"]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "events" ("title", "description", "location", "date_start", "date_end", "people_count", "category", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["title", "Cowtipping"], ["description", "Step 1: Find cow. Step 2: Tip it . At least 15%."], ["location", "653 Kansas St, San Francisco"], ["date_start", "2015-04-20 19:59:59.000000"], ["date_end", "2015-04-20 19:59:59.000000"], ["people_count", 20], ["category", "Outdoors"], ["created_at", "2015-03-01 07:53:41.966884"], ["updated_at", "2015-03-01 07:53:41.966884"]]
+  [1m[35m (6.0ms)[0m  COMMIT
+Incoming Headers:
+  Origin: http://localhost:8100
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/events" for ::1 at 2015-02-28 23:54:29 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (5.9ms)[0m  SELECT "events".* FROM "events"
+Completed 200 OK in 35ms (Views: 22.0ms | ActiveRecord: 9.8ms)
+Incoming Headers:
+  Origin: http://localhost:8100
+  Access-Control-Request-Method: 
+  Access-Control-Request-Headers: 
+
+
+Started GET "/events" for ::1 at 2015-02-28 23:58:33 -0800
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.6ms)[0m  [1mSELECT "events".* FROM "events"[0m
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.6ms)
